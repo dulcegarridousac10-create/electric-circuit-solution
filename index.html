@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Electric Circuit Solution - Instalaciones y soluciones eléctricas.">
+  <title>Electric Circuit Solution | Soluciones Eléctricas</title>
+  <style>
+    :root{
+      --blue:#0799ff;
+      --dark:#07111d;
+      --dark2:#0d1b2a;
+      --yellow:#ffc928;
+      --white:#f7fbff;
+      --muted:#b8c8d8;
+      --card:#102337;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:linear-gradient(180deg,#050b12 0%,#081522 48%,#06101a 100%);
+      color:var(--white);line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    .nav{
+      position:sticky;top:0;z-index:20;
+      background:rgba(5,11,18,.88);backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(7,153,255,.22);
+    }
+    .nav-inner{max-width:1150px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.7px}
+    .brand img{width:48px;height:48px;object-fit:cover;border-radius:50%;border:2px solid var(--blue)}
+    .brand span{font-size:15px}
+    .links{display:flex;gap:20px;font-size:14px;color:var(--muted)}
+    .links a:hover{color:var(--yellow)}
+    .hero{
+      min-height:82vh;display:grid;place-items:center;text-align:center;
+      padding:80px 22px 60px;
+      background:
+        radial-gradient(circle at 50% 10%,rgba(7,153,255,.20),transparent 34%),
+        radial-gradient(circle at 80% 70%,rgba(255,201,40,.10),transparent 25%);
+      position:relative;overflow:hidden;
+    }
+    .hero:before,.hero:after{
+      content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(7,153,255,.12);
+      border-radius:50%;animation:pulse 5s infinite ease-in-out;
+    }
+    .hero:before{top:-180px;left:-180px}.hero:after{bottom:-220px;right:-160px;animation-delay:1.2s}
+    @keyframes pulse{50%{transform:scale(1.08);opacity:.55}}
+    .hero-content{max-width:900px;position:relative;z-index:2}
+    .logo{width:min(360px,78vw);border-radius:50%;display:block;margin:0 auto 28px;
+      filter:drop-shadow(0 18px 30px rgba(0,0,0,.45));}
+    .eyebrow{color:var(--yellow);font-weight:800;letter-spacing:3px;font-size:13px;text-transform:uppercase}
+    h1{font-size:clamp(38px,7vw,76px);line-height:1;margin:12px 0 18px;letter-spacing:-2px}
+    h1 span{color:var(--blue)}
+    .hero p{max-width:700px;margin:auto;color:var(--muted);font-size:18px}
+    .buttons{margin-top:30px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+    .btn{padding:13px 22px;border-radius:10px;font-weight:800;border:1px solid var(--blue);transition:.25s}
+    .btn.primary{background:var(--blue);color:#00101c}
+    .btn.secondary{background:transparent;color:var(--white)}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 12px 25px rgba(7,153,255,.18)}
+    section{max-width:1100px;margin:auto;padding:85px 22px}
+    .section-title{text-align:center;margin-bottom:42px}
+    .section-title small{color:var(--yellow);font-weight:800;letter-spacing:2px;text-transform:uppercase}
+    .section-title h2{font-size:clamp(30px,5vw,46px);margin-top:7px}
+    .section-title p{color:var(--muted);max-width:680px;margin:10px auto 0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{
+      background:linear-gradient(145deg,rgba(16,35,55,.95),rgba(9,24,39,.95));
+      border:1px solid rgba(7,153,255,.18);border-radius:18px;padding:28px;
+      box-shadow:0 15px 35px rgba(0,0,0,.18);transition:.25s;
+    }
+    .card:hover{transform:translateY(-6px);border-color:rgba(7,153,255,.55)}
+    .icon{font-size:34px;margin-bottom:12px}
+    .card h3{margin-bottom:10px;color:var(--white)}
+    .card p,.card li{color:var(--muted)}
+    .card ul{padding-left:18px}
+    .highlight{border-left:4px solid var(--yellow)}
+    .project{
+      display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;
+    }
+    .project-box{
+      padding:32px;border-radius:22px;
+      background:linear-gradient(145deg,#0d2135,#091522);
+      border:1px solid rgba(255,201,40,.2);
+    }
+    .project-box h3{font-size:28px;margin-bottom:12px}
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(7,153,255,.12);color:#64c5ff;margin:4px 4px 4px 0;font-size:13px}
+    .contact{
+      display:grid;grid-template-columns:1fr 1fr;gap:20px;
+    }
+    .contact-item{padding:25px;border-radius:16px;background:var(--card);border:1px solid rgba(7,153,255,.18)}
+    .contact-item strong{display:block;color:var(--yellow);margin-bottom:6px}
+    footer{text-align:center;padding:35px 22px;border-top:1px solid rgba(7,153,255,.15);color:var(--muted);font-size:13px}
+    .lightning{color:var(--yellow)}
+    @media(max-width:800px){
+      .links{display:none}.grid,.project,.contact{grid-template-columns:1fr}
+      section{padding:65px 18px}.hero{min-height:76vh}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#inicio">
+        <img src="logo.jpeg" alt="Logo de Electric Circuit Solution">
+        <span>ELECTRIC CIRCUIT SOLUTION</span>
+      </a>
+      <div class="links">
+        <a href="#proyecto">PROYECTO</a>
+        <a href="#mision">MISIÓN Y VISIÓN</a>
+        <a href="#objetivos">OBJETIVOS</a>
+        <a href="#contacto">CONTACTO</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero" id="inicio">
+      <div class="hero-content">
+        <img class="logo" src="logo.jpeg" alt="Electric Circuit Solution">
+        <div class="eyebrow">SOLUCIONES ELÉCTRICAS</div>
+        <h1>ELECTRIC <span>CIRCUIT</span> SOLUTION</h1>
+        <p>Conectamos conocimientos, seguridad y práctica para desarrollar soluciones en instalaciones y circuitos eléctricos.</p>
+        <div class="buttons">
+          <a class="btn primary" href="#proyecto">CONOCER EL PROYECTO</a>
+          <a class="btn secondary" href="#contacto">VER CONTACTO</a>
+        </div>
+      </div>
+    </header>
+
+    <section id="proyecto">
+      <div class="section-title">
+        <small>NUESTRO PROYECTO</small>
+        <h2>THREE-WAY EN TABLERO MIXTO <span class="lightning">⚡</span></h2>
+        <p>Una aplicación práctica de los conocimientos adquiridos en el área de electricidad.</p>
+      </div>
+      <div class="project">
+        <div class="project-box">
+          <h3>¿EN QUÉ CONSISTE?</h3>
+          <p>El proyecto consiste en realizar un tablero mixto que incorpora un circuito <strong>three-way</strong>, permitiendo controlar una misma lámpara desde dos puntos diferentes. Esto facilita comprender las conexiones, los conductores, los interruptores y el funcionamiento de un sistema de iluminación.</p>
+          <div style="margin-top:18px">
+            <span class="tag">THREE-WAY</span>
+            <span class="tag">TABLERO MIXTO</span>
+            <span class="tag">ILUMINACIÓN</span>
+            <span class="tag">SEGURIDAD ELÉCTRICA</span>
+          </div>
+        </div>
+        <div class="project-box highlight">
+          <h3>SEGURIDAD PRIMERO</h3>
+          <p>Todo montaje eléctrico debe realizarse de forma responsable, ordenada y segura, utilizando correctamente las herramientas, materiales y equipos de protección personal.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="mision">
+      <div class="section-title">
+        <small>IDENTIDAD</small>
+        <h2>MISIÓN Y VISIÓN</h2>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="icon">⚡</div>
+          <h3>MISIÓN</h3>
+          <p>REALIZAR INSTALACIONES Y CIRCUITOS ELÉCTRICOS DE MANERA RESPONSABLE, ORDENADA Y SEGURA, APLICANDO CORRECTAMENTE LOS CONOCIMIENTOS, MATERIALES Y HERRAMIENTAS NECESARIAS PARA OBTENER UN FUNCIONAMIENTO ADECUADO Y OFRECER SOLUCIONES PRÁCTICAS EN EL ÁREA DE LA ELECTRICIDAD.</p>
+        </article>
+        <article class="card">
+          <div class="icon">💡</div>
+          <h3>VISIÓN</h3>
+          <p>SER UN PROYECTO RECONOCIDO POR LA CALIDAD, SEGURIDAD Y EFICIENCIA EN LA REALIZACIÓN DE INSTALACIONES Y CIRCUITOS ELÉCTRICOS, APLICANDO LOS CONOCIMIENTOS TÉCNICOS ADQUIRIDOS Y BUSCANDO MEJORAR CONTINUAMENTE EN EL ÁREA DE LA ELECTRICIDAD.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🔧</div>
+          <h3>VALORES</h3>
+          <p>RESPONSABILIDAD, SEGURIDAD, ORDEN, CALIDAD, EFICIENCIA Y COMPROMISO CON EL TRABAJO ELÉCTRICO.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="objetivos">
+      <div class="section-title">
+        <small>LO QUE BUSCAMOS LOGRAR</small>
+        <h2>OBJETIVOS</h2>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="icon">🎯</div>
+          <h3>OBJETIVO GENERAL</h3>
+          <p>DESARROLLAR Y APLICAR LOS CONOCIMIENTOS TEÓRICOS Y PRÁCTICOS DE ELECTRICIDAD MEDIANTE LA ELABORACIÓN DE UN TABLERO MIXTO CON CIRCUITO THREE-WAY, FORTALECIENDO LAS HABILIDADES NECESARIAS PARA REALIZAR INSTALACIONES ELÉCTRICAS DE FORMA SEGURA, ORDENADA Y EFICIENTE.</p>
+        </article>
+        <article class="card">
+          <div class="icon">1️⃣</div>
+          <h3>OBJETIVO ESPECÍFICO 1</h3>
+          <p>REALIZAR CORRECTAMENTE LAS CONEXIONES DEL CIRCUITO THREE-WAY, IDENTIFICANDO LOS CONDUCTORES, INTERRUPTORES Y DEMÁS COMPONENTES NECESARIOS PARA SU FUNCIONAMIENTO.</p>
+        </article>
+        <article class="card">
+          <div class="icon">2️⃣</div>
+          <h3>OBJETIVO ESPECÍFICO 2</h3>
+          <p>APLICAR LAS MEDIDAS DE SEGURIDAD Y LOS PROCEDIMIENTOS ADECUADOS DURANTE EL MONTAJE DEL TABLERO MIXTO, UTILIZANDO CORRECTAMENTE LAS HERRAMIENTAS Y LOS EQUIPOS DE PROTECCIÓN PERSONAL.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="section-title">
+        <small>ENCUÉNTRANOS</small>
+        <h2>CONTACTO</h2>
+        <p>Estamos ubicados en Chimaltenango.</p>
+      </div>
+      <div class="contact">
+        <div class="contact-item">
+          <strong>📞 TELÉFONO</strong>
+          <a href="tel:+50242688319">4268-8319</a>
+        </div>
+        <div class="contact-item">
+          <strong>📍 UBICACIÓN</strong>
+          <span>2DA CALLE 6-51, ZONA 4, CHIMALTENANGO, GUATEMALA</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>ELECTRIC CIRCUIT SOLUTION</strong> · CONECTAMOS IDEAS, CREAMOS SOLUCIONES. ⚡
+  </footer>
+</body>
+</html>
